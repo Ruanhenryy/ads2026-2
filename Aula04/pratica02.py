@@ -1,0 +1,29 @@
+catalogo = ["Macarrão alfazorro", "Camarão romano", "Sopa de carne", "Refrigerante"]
+comanda = {
+    "Macarrão alfazorro" : 75.90,
+    "Camarão romano" : 65.30,
+    "Sopa de carne" : 20.99,
+    "Refrigerante" : 30.99,
+    "Maizena hidatrada" : 10.00
+}
+
+def itens_validos(comanda):
+    itensValidos = []
+    for item in comanda.keys():
+        if item not in catalogo:
+            print(f"Item '{item}' não encontrado no catálogo")
+        else:
+            itensValidos.append(item)
+    return itensValidos     
+
+def subtotal(comanda):
+    total = 0
+    for item, valor in comanda.items():
+        if item not in catalogo:
+            print(f"Item '{item}' não encontrado no catálogo")
+        else:
+            total += valor
+    return total
+
+print(itens_validos(comanda))
+print(subtotal(comanda))
