@@ -25,5 +25,19 @@ def subtotal(comanda):
             total += valor
     return total
 
+
+def desconto(comanda, valor, minimo=3):
+    if len(itens_validos(comanda)) >= minimo:
+        return valor * 0.10
+    return 0
+
+def fechar(comanda):
+    sub = subtotal(comanda)
+    desc = desconto(comanda, sub)
+    return {"subtotal": sub, "desconto": desc, "total": sub - desc}
+
+
 print(itens_validos(comanda))
 print(subtotal(comanda))
+print(desconto(comanda, subtotal(comanda)))
+print(fechar(comanda))
